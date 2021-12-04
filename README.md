@@ -1,2 +1,6 @@
-# Alinx-AXU2CGA-PYNQ
- PYNQ board spec for Alinx AXU2CGA
+# Alinx-PYNQ
+ PYNQ board spec for Alinx boards
+
+## Board List
+ - AXU2CGA
+ - AXU3EG

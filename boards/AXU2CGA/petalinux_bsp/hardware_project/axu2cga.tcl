@@ -1,6 +1,6 @@
 
 ################################################################
-# This is a generated script based on design: axu2cga
+# This is a generated script based on design: design_1
 #
 # Though there are limitations about the generated script,
 # the main purpose of this utility is to make learning
@@ -35,21 +35,21 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 ################################################################
 
 # To test this script, run the following commands from Vivado Tcl console:
-# source axu2cga_script.tcl
+# source design_1_script.tcl
 
 # If there is no project opened, this script will create a
 # project, but make sure you do not have an existing project
-# <./axu2cga/axu2cga.xpr> in the current working folder.
+# <./myproj/project_1.xpr> in the current working folder.
 
 set list_projs [get_projects -quiet]
 if { $list_projs eq "" } {
-   create_project axu2cga axu2cga -part xczu2cg-sfvc784-1-e
+   create_project project_1 myproj -part xczu2cg-sfvc784-1-e
 }
 
 
 # CHANGE DESIGN NAME HERE
 variable design_name
-set design_name axu2cga
+set design_name design_1
 
 # If you do not already have an existing IP Integrator design open,
 # you can create a design using the following command:
@@ -781,6 +781,7 @@ proc create_root_design { parentCell } {
   current_bd_instance $oldCurInst
 
   # Create PFM attributes
+  set_property PFM_NAME {xilinx:alinx-axu2cga:axu2cga:0.0} [get_files [current_bd_design].bd]
   set_property PFM.AXI_PORT {M_AXI_HPM0_FPD {memport "M_AXI_GP" sptag "" memory "" is_range "false"} M_AXI_HPM1_FPD {memport "M_AXI_GP" sptag "" memory "" is_range "false"} M_AXI_HPM0_LPD {memport "M_AXI_GP" sptag "" memory "" is_range "false"} S_AXI_HPC0_FPD {memport "S_AXI_HPC" sptag "" memory "" is_range "false"} S_AXI_HPC1_FPD {memport "S_AXI_HPC" sptag "" memory "" is_range "false"} S_AXI_HP0_FPD {memport "S_AXI_HP" sptag "" memory "" is_range "false"} S_AXI_HP1_FPD {memport "S_AXI_HP" sptag "" memory "" is_range "false"} S_AXI_HP2_FPD {memport "S_AXI_HP" sptag "" memory "" is_range "false"} S_AXI_HP3_FPD {memport "S_AXI_HP" sptag "" memory "" is_range "false"} S_AXI_LPD {memport "MIG" sptag "" memory "" is_range "false"}} [get_bd_cells /zynq_ultra_ps_e_0]
   set_property PFM.CLOCK {pl_clk0 {id "0" is_default "true" proc_sys_reset "/proc_sys_reset_0" status "fixed" freq_hz "99999001"}} [get_bd_cells /zynq_ultra_ps_e_0]
 

@@ -12,6 +12,8 @@ set_property top ${design_name}_wrapper [current_fileset]
 update_compile_order -fileset sources_1
 
 # set platform properties
+set_property platform.board_id "axu3eg" [current_project]
+set_property platform.name "axu3eg" [current_project]
 set_property platform.default_output_type "sd_card" [current_project]
 set_property platform.design_intent.embedded "true" [current_project]
 set_property platform.design_intent.server_managed "false" [current_project]

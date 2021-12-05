@@ -39,11 +39,11 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # If there is no project opened, this script will create a
 # project, but make sure you do not have an existing project
-# <./myproj/project_1.xpr> in the current working folder.
+# <./axu3eg/axu3eg.xpr> in the current working folder.
 
 set list_projs [get_projects -quiet]
 if { $list_projs eq "" } {
-   create_project project_1 myproj -part xczu3eg-sfvc784-1-i
+   create_project axu3eg axu3eg -part xczu3eg-sfvc784-1-i
 }
 
 

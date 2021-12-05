@@ -39,11 +39,11 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # If there is no project opened, this script will create a
 # project, but make sure you do not have an existing project
-# <./axu3eg/axu3eg.xpr> in the current working folder.
+# <./myproj/project_1.xpr> in the current working folder.
 
 set list_projs [get_projects -quiet]
 if { $list_projs eq "" } {
-   create_project axu3eg axu3eg -part xczu3eg-sfvc784-1-i
+   create_project project_1 myproj -part xczu3eg-sfvc784-1-i
 }
 
 
@@ -848,6 +848,13 @@ proc create_root_design { parentCell } {
   # Restore current instance
   current_bd_instance $oldCurInst
 
+  # Create PFM attributes
+  set_property PFM_NAME {xilinx:alinx-axu3eg:axu3eg:0.0} [get_files [current_bd_design].bd]
+  set_property PFM.CLOCK {pl_clk0 {id "0" is_default "true" proc_sys_reset "/proc_sys_reset_0" status "fixed" freq_hz "99999001"}} [get_bd_cells /zynq_ultra_ps_e_0]
+  set_property PFM.AXI_PORT {M_AXI_HPM0_FPD {memport "M_AXI_GP" sptag "" memory "" is_range "false"} M_AXI_HPM1_FPD {memport "M_AXI_GP" sptag "" memory "" is_range "false"} M_AXI_HPM0_LPD {memport "M_AXI_GP" sptag "" memory "" is_range "false"} S_AXI_HPC0_FPD {memport "S_AXI_HPC" sptag "" memory "" is_range "false"} S_AXI_HPC1_FPD {memport "S_AXI_HPC" sptag "" memory "" is_range "false"} S_AXI_HP0_FPD {memport "S_AXI_HP" sptag "" memory "" is_range "false"} S_AXI_HP1_FPD {memport "S_AXI_HP" sptag "" memory "" is_range "false"} S_AXI_HP2_FPD {memport "S_AXI_HP" sptag "" memory "" is_range "false"} S_AXI_HP3_FPD {memport "S_AXI_HP" sptag "" memory "" is_range "false"} S_AXI_LPD {memport "MIG" sptag "" memory "" is_range "false"}} [get_bd_cells /zynq_ultra_ps_e_0]
+
+
+  validate_bd_design
   save_bd_design
 }
 # End of create_root_design()
@@ -859,6 +866,4 @@ proc create_root_design { parentCell } {
 
 create_root_design ""
 
-
-common::send_gid_msg -ssname BD::TCL -id 2053 -severity "WARNING" "This Tcl script was generated from a block design that has not been validated. It is possible that design <$design_name> may result in errors during validation."
 

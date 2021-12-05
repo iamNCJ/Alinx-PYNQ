@@ -1,6 +1,6 @@
 
 ################################################################
-# This is a generated script based on design: design_1
+# This is a generated script based on design: axu2cga
 #
 # Though there are limitations about the generated script,
 # the main purpose of this utility is to make learning
@@ -35,21 +35,21 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 ################################################################
 
 # To test this script, run the following commands from Vivado Tcl console:
-# source design_1_script.tcl
+# source axu2cga_script.tcl
 
 # If there is no project opened, this script will create a
 # project, but make sure you do not have an existing project
-# <./myproj/project_1.xpr> in the current working folder.
+# <./axu2cga/axu2cga.xpr> in the current working folder.
 
 set list_projs [get_projects -quiet]
 if { $list_projs eq "" } {
-   create_project project_1 myproj -part xczu2cg-sfvc784-1-e
+   create_project axu2cga axu2cga -part xczu2cg-sfvc784-1-e
 }
 
 
 # CHANGE DESIGN NAME HERE
 variable design_name
-set design_name design_1
+set design_name axu2cga
 
 # If you do not already have an existing IP Integrator design open,
 # you can create a design using the following command:

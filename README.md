@@ -3,4 +3,4 @@
 
 ## Board List
  - AXU2CGA
- - AXU3EG
+ - AXU3EG (Removed eMMC Support for PYNQ to Boot)
